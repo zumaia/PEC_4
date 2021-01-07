@@ -1,5 +1,6 @@
 Programación para la ciencia de datos - PEC4
-OSCAR ROJO MARTIN
+
+# OSCAR ROJO MARTIN
 ============================
 
 # Los datos
@@ -83,7 +84,7 @@ En este apartado cargo el fichero tb_functions.pl leyendo linea a lines, realiza
 
 
 
-![png](graficos/grafica_relaciones_patron_proteina.png)
+![png](graficos/grafica_relaciones_patron_ proteina.png)
 
 
     El número promedio de ORFs con los cuales se relacionanlos ORFs según el segundo patron es: 40.0 
