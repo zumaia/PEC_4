@@ -2,6 +2,158 @@ Programación para la ciencia de datos - PEC4
 
 # OSCAR ROJO MARTIN
 ============================
+El presente proyecto trata de resolver una serie de preguntas sobre varios dataset provenientes del repositorio UCI Machine Learning
+
+Delimito 2 tipos diferentes de carga de datos.
+El primero engloba el archivo tb_functions.pl
+El segundo engloga todos los ficheros txt contenidos dentro de la carpeta orfs.
+
+En lineas generales para ambos ficheros he determinado que la lectura de los mismos se realiza como un fichero plano txt.
+En los 2 voy leyendo linea a línea, hago su transformación correspondiente para posteriormente convertirlos en dataframe.
+
+En particular en el primero obtengo el dataframe *df*
+Este dataframe lo voy a utilizar para las preguntas 1.1, 1.2, 2.1 y 3
+
+Con respecto al segundo dataframe, es más complejo puesto que primero leo todos los ficheros txt contenidos para posteriormente realizar una lectura de cada linea, seleccioando 5 filas que comienzas por 5 diferentes palabras y utilizando la primera y la última de ellas, genero sublistas. Al final de todo este trabajo obtengo el dataframe *df_total"
+Con este dataframe resuelvo la pregunta 2.2.
+
+Todos las preguntas, salvo la 1.2 llevan anexado una gráfica.
+Salvo en el apartado 2.1 he optado por utilizar un gráfico de barras mostrando cada uno de los valores obtenido
+Para el caso 2.2 he optado el formato de gráfica **pie** ya que en ella he mostrado el resultado completo de la consulta y he añadido la proporción de cada una de los valores que componen el resultado final.
+
+El proyecto está estructurado de la siguiente manera:
+
+pec4-rojo_oscar  
+├── basic_analysis.py  
+├── data  
+│   ├── orfs  
+│   └── tb_functions.pl  
+├── ES-PEC4-enun.ipynb  
+├── graficos  
+│   ├── clases_multiplo.png  
+│   ├── grafica_patron_hydro.png  
+│   ├── grafica_patron_proteina.png  
+│   ├── grafica_relaciones_patron_hydro.png  
+│   ├── grafica_relaciones_patron_proteina.png  
+│   └── numero_ORF.png   
+├── __init__.py  
+├── LICENSE.md    
+├── pdf  
+│   ├── CAT-PAC4-enun.pdf  
+│   ├── ES-PEC4-enun1 .pdf  
+│   └── ES-PEC4-enun.pdf  
+├── PEC4-Oscar_Rojo.ipynb  
+├── __pycache__  
+│   ├── basic_analysis.cpython-38.pyc  
+│   └── utils.cpython-38.pyc  
+├── README.md  
+├── requirements.txt  
+├── test  
+│   ├── __init__.py  
+│   ├── __pycache__  
+│   └── test.py  
+├── utils.py  
+└── ven_PEC4  
+    ├── bin  
+    ├── etc  
+    ├── include  
+    ├── lib  
+    ├── lib64 -> lib  
+    ├── pyvenv.cfg  
+    └── share  
+  
+
+El fichero adjunto en formato comprimido contiene estos ficheros:
+pec4-rojo_oscar
+├── basic_analysis.py  
+├── graficos  
+│   ├── clases_multiplo.png  
+│   ├── grafica_patron_hydro.png  
+│   ├── grafica_patron_proteina.png  
+│   ├── grafica_relaciones_patron_hydro.png  
+│   ├── grafica_relaciones_patron_proteina.png  
+│   └── numero_ORF.png  
+├── __init__.py  
+├── LICENSE.md  
+├── PEC4-Oscar_Rojo.ipynb  
+├── README.md  
+├── requirements.txt  
+├── test  
+│   ├── __init__.py  
+│   ├── __pycache__  
+│   └── test.py  
+├── utils.py    
+
+Básicamente se excluyen el directorio ven_PEC4 ya que es el entorno virtual que hay que crear en la carpeta donde se guarden todos estos archivos
+Se elimina tambien las carpetas pdf, data y el enunciado, ya que es lo que se ha aportado desde el profesorado.
+
+============================
+
+Comenzamos a trabajar con los ficheros
+
+1 - Se descarga el archivo comprimido en una nueva carpeta, totalmente vacia.  
+
+2 - En dicha carpeta se descarga genera un entrono virtual para aislar nuestro proyecto de otros proyectos y tener un control sobre los paquetes que se instalen y sus correspondientes versiones.  El nombre puede ser cualquiera, para la confección del ejercicio indique **ven_PEC4**   
+
+3 - Una vez generado el entrono virtual se activa con:   
+
+	$ source ven_PEC4/bin/activate  
+	
+4 - Tras activar es necesario instalar los paquetes asociados con este proyecto. Dichos paquetes con sus correspondintes versiones se encuentran alojados en el fichero requirements.txt. Es necesario ejecutar  
+
+	$ pip3 install -r requirements.txt  
+	
+5 - Por último no nos queda más que ejecutar el programa con la siguiente orden   
+
+	$ python3 basic_analysis.py  
+	
+Una vez ejecutado, el programa generará automáticamete las ordenes indicadas y mostrará en pantalla las gráficas y guardará dichas gráficas en la carpeta gráficos.
+
+**basic_analysis.py** contiene la ejecución de todas las función que se han programado y guardado en la fichero utils.py, desde la recolección de los datos, su transformación y la representación de los resultados.
+
+Por último para testear el programa se ha generado un fichero test.py dentro de la carpeta test. 
+Para ejecutarlo hay que indicar la siguiente orden:  
+
+	$ coverage run -m unittest test/test.py basic_analysis.py utils.py 
+	
+Y para la medición de la cobertura de los test hay que ejecutar la orden: 
+
+	$ coverage report -m test/test.py basic_analysis.py utils.py
+	
+En este caso en particular la cobertura ha sido del 64%
+
+![png](graficos/cobertura.png)
+
+
+============================
+
+Para generar este proyecto se han utilizado lo siguiente:
+* S.O. Ubuntu 20.04
+* Jupyter Lab 
+* Sublime Text
+* Pycharm Profesional 2020.1, que es grátis para estudiantes.
+
+El ejercicio se ha probado en la máquina virtual suministrada, con el mismo resultado.
+
+![png](graficos/mv.png)
+
+
+============================
+
+Para guardar el proyecto y controlar las versiones, se ha utilizado Github
+
+Este proyecto se ha guardado en Github en el repoitorio **github.com/zumaia/PEC_**
+
+![png](graficos/github.png)
+
+============================
+
+Por último: represento un resumen del trabajo que se obtiene ejecutando la orden
+
+	$ python3 basic_analysis.py
+	
+============================
+
 
 # Los datos
 
@@ -116,3 +268,4 @@ donde ? representa un entero.
     M = 9:  3 clases
 
 
+![png](graficos/clases_multiplo.png)
